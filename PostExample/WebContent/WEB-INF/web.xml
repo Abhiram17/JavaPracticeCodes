@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<element>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>PostExample</display-name>
+
+  <servlet>
+    <servlet-name>post</servlet-name>
+    <servlet-class>PostExample</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>post</servlet-name>
+    <url-pattern>/getit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ErrorH</servlet-name>
+    <servlet-class>Errorhandler</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ErrorH</servlet-name>
+    <url-pattern>/ErrorHandler</url-pattern>
+  </servlet-mapping>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/ErrorHandler</location>
+  </error-page>
+  
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
+</element>

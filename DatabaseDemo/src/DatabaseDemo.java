@@ -6,8 +6,7 @@ public class DatabaseDemo {
 	{
 		try{  
 			Class.forName("com.mysql.jdbc.Driver");  
-			Connection con=DriverManager.getConnection(  
-			"jdbc:mysql://localhost:3306/ABI","root","abiramroot");  
+			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/ABI","root","abiramroot");  
 			//here ABI is database name, root is username and password is abiramroot 
 			Statement stmt=con.createStatement();  
 			ResultSet rs=stmt.executeQuery("select * from Student");  

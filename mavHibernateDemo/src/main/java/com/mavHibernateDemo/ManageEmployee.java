@@ -25,7 +25,8 @@ public class ManageEmployee {
       /* Add few employee records in database */
       Integer empID1 = ME.addEmployee("Zara", "Ali", 1000);
       Integer empID2 = ME.addEmployee("Daisy", "Das", 5000);
-      Integer empID3 = ME.addEmployee("John", "Paul", 10000);
+      @SuppressWarnings("unused")
+	Integer empID3 = ME.addEmployee("John", "Paul", 10000);
 
       /* List down all the employees */
       ME.listEmployees();
@@ -67,8 +68,9 @@ public class ManageEmployee {
       
       try {
          tx = session.beginTransaction();
-         List employees = session.createQuery("FROM Employee").list(); 
-         for (Iterator iterator = employees.iterator(); iterator.hasNext();){
+         @SuppressWarnings("rawtypes")
+		List employees = session.createQuery("FROM Employee").list(); 
+         for (@SuppressWarnings("rawtypes") Iterator iterator = employees.iterator(); iterator.hasNext();){
             Employee employee = (Employee) iterator.next(); 
             System.out.print("First Name: " + employee.getFirstName()); 
             System.out.print("  Last Name: " + employee.getLastName()); 

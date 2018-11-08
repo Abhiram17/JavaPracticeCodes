@@ -1,6 +1,5 @@
 
 import java.util.List; 
-import java.util.Date;
 import java.util.Iterator; 
  
 import org.hibernate.HibernateException; 
@@ -79,6 +78,7 @@ public class ManageEmployee {
          if (tx!=null) tx.rollback();
          e.printStackTrace(); 
       } finally {
+    	  System.out.println("");
          session.close(); 
       }
    }

@@ -9,7 +9,8 @@ import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 
 public class StudentJDBCTemplate {
-   private DataSource dataSource;
+   @SuppressWarnings("unused")
+private DataSource dataSource;
    private JdbcTemplate jdbcTemplateObject;
    private SimpleJdbcCall jdbcCall;
    

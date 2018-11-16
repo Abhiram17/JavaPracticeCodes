@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <hibernate-mapping>
-	<class name = "com.HibernateSet.Employee" table = "employee">
+	<class name = "com.HibernateList.Employee" table = "employee">
 	
 		<meta attribute = "class-discription">
 			Has employee details with certificates
@@ -10,17 +10,17 @@
 			<generator class = "native"/>
 		</id>
 		
-		<map name = "certificates" cascade="all">
+		<list name = "certificates" cascade="all">
          <key column = "employee_id"/>
-         <index column = "certificate_type" type = "string"/>
-         <one-to-many class="com.HibernateSet.Certificate"/>
-      </map>
+         <list-index column = "idx"/>
+         <one-to-many class="com.HibernateList.Certificate"/>
+      </list>
 		<property name = "firstName" column = "first_name" type = "string"/>
       <property name = "lastName" column = "last_name" type = "string"/>
       <property name = "salary" column = "salary" type = "int"/>
 	</class>
 	
-	<class name="com.HibernateSet.Certificate" table = "certificate">
+	<class name="com.HibernateList.Certificate" table = "certificate">
 		<meta attribute = "class-description">
          This class contains the certificate records. 
       </meta>

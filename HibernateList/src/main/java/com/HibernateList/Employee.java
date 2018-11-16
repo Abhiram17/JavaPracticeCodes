@@ -1,7 +1,7 @@
-package com.HibernateSet;
+package com.HibernateList;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class Employee {
@@ -11,7 +11,7 @@ public class Employee {
 	   private String lastName;   
 	   private int salary;
 	   @SuppressWarnings("rawtypes")
-	   private Map certificates;
+	   private List certificates;
 	   
 	   public Employee() {}
 	   public Employee(String firstName, String lastName, int salary) {
@@ -44,12 +44,12 @@ public class Employee {
 		this.salary = salary;
 	}
 	@SuppressWarnings("rawtypes")
-	public Map getCertificates() {
+	public List getCertificates() {
 		return certificates;
 	}
 	@SuppressWarnings("rawtypes")
-	public void setCertificates(Map certificates) {
-		this.certificates = certificates;
+	public void setCertificates(List cert) {
+		this.certificates = cert;
 	}
 	
 }

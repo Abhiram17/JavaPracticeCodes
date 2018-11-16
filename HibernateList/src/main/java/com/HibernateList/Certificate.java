@@ -1,6 +1,6 @@
-package com.HibernateSet;
+package com.HibernateList;
 
-public class Certificate  {
+public class Certificate implements Comparable <Certificate> {
 	   private int id;
 	   private String name; 
 
@@ -26,7 +26,7 @@ public class Certificate  {
 	      this.name = name;
 	   }
 	   
-	 /*  public boolean equals(Object obj) {
+	   public boolean equals(Object obj) {
 	      if (obj == null) return false;
 	      if (!this.getClass().equals(obj.getClass())) return false;
 
@@ -62,5 +62,5 @@ public class Certificate  {
 	      } else {
 	         return thisCertificate.compareTo(thatCertificate);
 	      }
-	}*/
+	}
 	}

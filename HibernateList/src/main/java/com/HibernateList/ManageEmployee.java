@@ -1,4 +1,4 @@
-package com.HibernateSet;
+package com.HibernateList;
 
 import java.util.*;
 import org.hibernate.HibernateException;
@@ -19,34 +19,34 @@ public class ManageEmployee {
 		}
 		ManageEmployee ME = new ManageEmployee();
 		/*adding certificates*/
-		HashMap set1 = new HashMap();
-		set1.put("ComputerScience",new Certificate("BA"));
-		set1.put("BuisnessManagement",new Certificate("MBA"));
-		set1.put("Projectmanagement",new Certificate("ACA"));
+		List set1 = new ArrayList();
+		set1.add(new Certificate("BA"));
+		set1.add(new Certificate("MBA"));
+		set1.add(new Certificate("ACA"));
 		/*adding another certificate set*/
-		/*HashMap set2 = new HashMap();
-	      set2.put("ComputerScience1",new Certificate("BCA"));
-	      set2.put("Arts",new Certificate("BA"));*/
+		ArrayList set2 = new ArrayList();
+	      set2.add(new Certificate("BCA"));
+	      set2.add(new Certificate("BA"));
 	      
 	      Integer empID1 = ME.addEmployee("Manoj", "Kumar", 4000, set1);
-	    /*  Integer empID2 = ME.addEmployee("Dilip", "Kumar", 3000, set1);
+	      Integer empID2 = ME.addEmployee("Dilip", "Kumar", 3000, set2);
 	      Integer empID3 = ME.addEmployee("Abhaz", "patel", 4500, set1);
-	      Integer empID4 = ME.addEmployee("bhaba", "aadio", 4500, set1);*/
-		 //List down all the employees 
-	     // ME.listEmployees();
+	      Integer empID4 = ME.addEmployee("bhaba", "aadio", 4500, set1);
+/*		 List down all the employees */
+	      ME.listEmployees();
 
 	      /* Update employee's salary records */
 	      ME.updateEmployee(empID1, 5000);
 
 	      // Delete an employee from the database 
-	      //ME.deleteEmployee(empID2);
+	     // ME.deleteEmployee(empID2);
 
 	      // List down all the employees 
 	      ME.listEmployees();
 	}
 	
 	@SuppressWarnings("rawtypes")
-	public Integer addEmployee(String fname, String lname, int salary, HashMap cert)
+	public Integer addEmployee(String fname, String lname, int salary, List cert)
 	{
 		Session session = factory.openSession();
 		Transaction tx = null;
@@ -78,15 +78,11 @@ public class ManageEmployee {
 	            System.out.print("First Name: " + employee.getFirstName()); 
 	            System.out.print("  Last Name: " + employee.getLastName()); 
 	            System.out.println("  Salary: " + employee.getSalary());
-	            Map cet = employee.getCertificates();
-	            /*for (Iterator iterator2 = certificates.iterator(); iterator2.hasNext();){
-	               Certificate certName = (Certificate) iterator2.next(); */
-	            System.out.println("Certificate: " + 
-	                    (((Certificate) cet.get("ComputerScience")).getName()));
-	            System.out.println("Certificate: " + 
-	                    (((Certificate)cet.get("BuisnessManagement")).getName()));
-	            System.out.println("Certificate: " + 
-	                    (((Certificate)cet.get("Projectmanagement")).getName()));
+	            List certificates = employee.getCertificates();
+	            for (Iterator iterator2 = certificates.iterator(); iterator2.hasNext();){
+	               Certificate certName = (Certificate) iterator2.next(); 
+	               System.out.println("Certificate: " + certName.getName()); 
+	            }
 	         }
 	         tx.commit();
 	      } catch (HibernateException e) {

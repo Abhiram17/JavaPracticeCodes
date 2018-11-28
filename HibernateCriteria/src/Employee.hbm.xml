@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hibernate-mapping>
+	<class name = "Employee" table = "employee">
+	
+		<meta attribute = "class-discription">
+			Has employee details with certificates
+		</meta>
+		
+		<id name = "id" column = "id" type = "int">
+			<generator class = "native"/>
+		</id>
+		<property name = "firstName" column = "first_name" type = "string"/>
+      <property name = "lastName" column = "last_name" type = "string"/>
+      <property name = "salary" column = "salary" type = "int"/>
+	</class>
+</hibernate-mapping>

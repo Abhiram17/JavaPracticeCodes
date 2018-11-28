@@ -25,7 +25,7 @@ public class App
 		}
     	//before adding data load initial data to display
     	//initializeData();
-    	System.out.println("its done!!!");
+    	//System.out.println("its done!!!");
     	//Print menu and take your choice, return choice(input)
     	printMenu();	
     }
@@ -65,6 +65,7 @@ public class App
 		finally
 		{
 			session.close();
+			System.out.println("Initialized data");
 		}
 	}
 
